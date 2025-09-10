@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "JSleuth",
+  "version": "1.0",
+  "description": "Find endpoints, links, JS files, npm modules, and secrets in JavaScript files.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JSleuth"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
